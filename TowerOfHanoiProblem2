@@ -1,0 +1,20 @@
+def TowOFH(n, rod, destination, auxiliary):
+    if n == 1:
+        print(F"Move disk from {rod} to {destination}")
+        return
+    TowOFH (n -1, rod, auxiliary, destination)
+    print(f"Move disk {n} from {rod} to {destination} ")
+    TowOFH(n -1, auxiliary, destination, rod)
+try:
+    n =  int(input("Enter values"))
+       
+    if n <= 0:
+           print("Error! Please enter a positive integer")
+    else:
+           print(f"\n Number of moves for {n}:")
+           TowOFH(n,'A', 'B', 'C') 
+except ValueError:
+       print("Invalid input ")                   
+    
+    
+    
