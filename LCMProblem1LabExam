@@ -1,0 +1,36 @@
+def gcd_recursive(a, b):
+    
+    if b == 0:
+        return a
+    return gcd_recursive(b, a % b)
+
+def lcm_recursive(x, y):
+    
+    return (x * y) // gcd_recursive(x, y)
+def get_postive_integer(prompt):
+    
+     while True:
+        try:
+            value = int(input(prompt))
+            if value <= 0:
+                print("Please enter a positive integer (greater than 0).")
+                continue
+            return value
+        except ValueError:
+            print("Please enter a valid integer.")
+
+
+def main():
+    print("LCM Calculator using Recursion")
+    print("-" * 30)
+    
+   
+    x = get_positive_integer("Enter a value for x: ") 
+    y = get_positive_integer("Enter a value for y: ")
+    
+    
+    result = lcm_recursive(x, y)
+    print(f"The LCM of {x} and {y} is = {result}")
+
+if __name__ == "__main__":
+    main()
